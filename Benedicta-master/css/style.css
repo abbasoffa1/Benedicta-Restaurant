@@ -112,35 +112,7 @@ header hr{
 }
 /* SEC. ONE ENDS */
 
-
-/* FOOTER STARTS */
-footer{
-    height: 100px;
-    background: #222;
-    
-}
-
-footer  i{
-    margin-right: 25px;
-    font-size: 1.3em;
-    color: white;
-    
-}
-footer .col-6 img{
-    width: 42px;
-    height: 42px;
-    cursor: pointer;
-}
-footer .col-6 i{
-    color: #fff;
-    transition: 0.3s linear;
-}
-
-footer .col-6 i:hover{
-    color: red !important;
-  
-}
-/* FOOTER ENDS */
+/* MENU UPDATE SECTION STARTS */
 #MenuUpdate{
     padding: 30px;
 }
@@ -166,9 +138,15 @@ footer .col-6 i:hover{
     height: 1px;
     margin: 0 auto;
  }
+ /* MENU UPDATE SECTION ENDS */
+
+ /* NAVBAR TOGGLER STARTS */
 .navbar-toggler{
     background: rgb(239, 52, 58) !important
 }
+ /* NAVBAR TOGGLER ENDS */
+
+ /* MENU SECTION STARTS */
 #menu .imgDiv img{
     width: 100%;
 }
@@ -207,7 +185,7 @@ display: inherit;
 #menu{
     padding: 30px;
 }
-#menu .showAllMenu{
+.showAllMenu{
     border: none;
     transition: 0.5s all ease;
     padding: 12px 30px;
@@ -221,7 +199,162 @@ display: inherit;
     display: flex;
     justify-content: space-around;
 }
-#menu .showAllMenu:hover{
+.showAllMenu:hover{
    background-color: rgb(239, 52, 58);
    transition: 0.5s all ease;
 }
+ /* MENU SECTION ENDS */
+
+
+ /* RESERVE SECTION STARTS */
+ #Reserve{
+    background-image: url(../img/slider-bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#Reserve .col-lg-12 h4,h1{
+    color: white;
+    text-align: center;
+}
+#Reserve  .col-lg-12 .phone{
+    margin-top: 140px;
+    font-size: 40px;
+}
+#Reserve .col-lg-6 .col-lg-12 h1{
+    font-size: 65px;
+}
+#Reserve .col-lg-12 .ReserveHr{
+    background: red;
+    width: 50px;
+    height: 1px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#Reserve .col-lg-6 img{
+    margin: 0 auto;
+    display: block;
+    margin-top: 45px;
+    width: 50px;
+}
+#Reserve .col-lg-6 h4,p{
+    color: white;
+}
+#Reserve .col-lg-6 h4{
+    font-size: 40px;
+    margin-top: 15px;
+}
+#Reserve .col-lg-6 p{
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 140px;
+}
+#Reserve .reserveForm{
+    background-color: whitesmoke;
+    margin-top: 50px;
+    padding: 80px 40px;
+}
+
+ /* RESERVE SECTION ENDS */
+
+ /* ABOUT SECTION STARTS */
+ #About .readMore{
+    border: none;
+    transition: 0.5s all ease;
+    padding: 12px 30px;
+    margin-top: 20px;
+    background: black;
+    color: white;
+}
+#About .itemBtn{
+    font-family: 'Open Sans';
+    transition: 0.5s all ease;
+    display: flex;
+    justify-content: space-around;
+}
+#About .readMore:hover{
+   background-color: rgb(239, 52, 58);
+   transition: 0.5s all ease;
+} 
+#About .col-lg-12 h1{
+    color: black;
+    font-size: 55px;
+}
+#About .col-lg-12 h2{
+    margin-top: 100px;
+    font-size: 45px;
+}
+#About .col-lg-12 hr{
+    background: red;
+    width: 50px;
+    height: 1px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#About .col-lg-12 p{
+    color: black;
+    margin-top: 30px;
+    text-align: center;
+}
+#About .itemBtn{
+    margin-bottom: 100px
+}
+#About .imgDivs{
+    margin-top: 80px;
+}
+#About .imgDivs .imgDivLeft{
+    margin-top: 30px;
+}
+#About img{
+    width: 100%;
+}
+ /* ABOUT SECTION ENDS */
+
+ /* TEA SECTION START */
+
+#tea{
+    background-image: url(../img/slider-bg3.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+ /* TEA SECTION END */
+/* FOOTER STARTS */
+footer{
+    height: 100px;
+    background: #222;
+    
+}
+
+footer  i{
+    margin-right: 25px;
+    font-size: 1.3em;
+    color: white;
+    
+}
+footer .col-6 img{
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+footer .col-6 i{
+    color: #fff;
+    transition: 0.3s linear;
+}
+
+footer .col-6 i:hover{
+    color: red !important;
+  
+}
+/* FOOTER ENDS */
