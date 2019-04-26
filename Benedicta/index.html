@@ -7,23 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Benedicta</title>
 
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href="css/style.css" rel="stylesheet">
+   
+        <link href="css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
     <!-- /* HEADER starts */ -->
     <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background:transparent !important;">
+        <section id="navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background:transparent !important;">
                 <a class="navbar-brand" href="index.html"><img
                         src="http://benedicta.evatheme.com/demo5/wp-content/uploads/2018/10/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -68,6 +68,9 @@
 
                 </div>
             </nav>
+        </section>
+        <div class="container-fluid">
+        
 
             <div class="row text-center" style="margin-top:100px;">
                 <div class="col-12 mb-5">
@@ -416,7 +419,9 @@
                         <div class="card-body">
                             <small class="text-muted">OCTOBER 12, 2018</small>
 
-                            <h5 class="card-title">What tea to choose to dish</h5>
+                            <a href="Card1.html">
+                                <h5 class="card-title">What tea to choose to dish</h5>
+                            </a>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This card has even longer content than the first to show that equal
                                 height action.</p>
@@ -437,7 +442,9 @@
                         <div class="card-body">
                             <small class="text-muted">OCTOBER 12, 2018</small>
 
-                            <h5 class="card-title">What tea to choose to dish</h5>
+                            <a href="Card2.html">
+                                <h5 class="card-title">What tea to choose to dish</h5>
+                            </a>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This card has even longer content than the first to show that equal
                                 height action.</p>
@@ -456,7 +463,7 @@
                         <div class="card-body">
                             <small class="text-muted">OCTOBER 12, 2018</small>
 
-                            <h5 class="card-title">What tea to choose to dish</h5>
+                            <a href="Card3.html"> <h5 class="card-title">What tea to choose to dish</h5></a>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This card has even longer content than the first to show that equal
                                 height action.</p>
@@ -479,25 +486,29 @@
         <div class="container-fluid" style="padding:0px 35px;">
             <div class="row" style="margin-top:40px">
 
-                    <div class="col-lg-6 ">
-                        <h5 style="line-height: 30px;font-size: 12px;  color:white;">Copyright © 2018 Evatheme. All
-                            Rights
-                            Reserved.
-                        </h5>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <img src="img/v-07-512.png" alt="" style="background-color:white">
-                    </div>
+                <div class="col-lg-6 ">
+                    <h5 style="line-height: 30px;font-size: 12px;  color:white;">Copyright © 2018 Evatheme. All
+                        Rights
+                        Reserved.
+                    </h5>
+                </div>
+                <div class="col-lg-6 text-right icons_social">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href="javascript:" id="return-to-top"><i class="fas fa-angle-up"></i></a>
+
+                </div>
 
 
             </div>
         </div>
     </footer>
     <!-- FOOTER ENDS -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script src="js/benedicta.js"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
