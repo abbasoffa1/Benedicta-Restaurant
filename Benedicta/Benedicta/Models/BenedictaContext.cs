@@ -12,21 +12,22 @@ namespace Benedicta.Models
         {
 
         }
-        DbSet<About> Abouts { get; set; }
-        DbSet<Contact> Contacts { get; set; }
-        DbSet<ContactForm> ContactForms { get; set; }
-        DbSet<Menu> Menus { get; set; }
-        DbSet<MenuUpdate> MenuUpdates { get; set; }
-        DbSet<News> News { get; set; }
-        DbSet<Property> Propertys { get; set; }
-        DbSet<Reservation> Reservations { get; set; }
-        DbSet<ReserveTable> ReserveTables { get; set; }
-        DbSet<Service> Services { get; set; }
-        DbSet<Setting> Settings { get; set; }
-        DbSet<Slider> Sliders { get; set; }
-        DbSet<Tea> Teas { get; set; }
-        DbSet<User> Users { get; set; }
-        DbSet<Welcome> Welcomes { get; set; }
+        public DbSet<About> About { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<ContactForm> ContactForm { get; set; }
+        public DbSet<Menu> Menu { get; set; }
+        public DbSet<MenuUpdate> MenuUpdate { get; set; }
+        public DbSet<News> New { get; set; }
+        public DbSet<Property> Property { get; set; }
+        public DbSet<Reservation> Reservation { get; set; }
+        public DbSet<ReserveTable> ReserveTable { get; set; }
+        public DbSet<Service> Service { get; set; }
+        public DbSet<Setting> Setting { get; set; }
+        public DbSet<Slider> Slider { get; set; }
+        public DbSet<Tea> Tea { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Welcome> Welcome { get; set; }
+
 
     }
 

@@ -19,7 +19,7 @@ namespace Benedicta.Models
         [StringLength(350)]
         public string Text { get; set; }
 
-        [StringLength(50)]
-        public string Phone { get; set; }
+        [StringLength(250)]
+        public string Photo { get; set; }
     }
 }

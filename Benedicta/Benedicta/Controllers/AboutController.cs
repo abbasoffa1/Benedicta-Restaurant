@@ -13,5 +13,9 @@ namespace Benedicta.Controllers
         {
             return View();
         }
+        public ActionResult Detail()
+        {
+            return View();
+        }
     }
 }
