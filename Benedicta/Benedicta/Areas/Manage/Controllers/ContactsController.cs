@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
+using Benedicta.Helpers;
 
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class ContactsController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
@@ -52,6 +54,7 @@ namespace Benedicta.Areas.Manage.Controllers
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
                 string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
                 contact.Photo = fileName;
                 db.Contact.Add(contact);
                 db.SaveChanges();
@@ -81,11 +84,24 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo")] Contact contact)
+        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo")] Contact contact,HttpPostedFileBase Photo)
         {
+            db.Entry(contact).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(contact).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                contact.Photo = fileName;
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

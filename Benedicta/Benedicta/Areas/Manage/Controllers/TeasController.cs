@@ -7,9 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
-
+using Benedicta.Helpers;
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class TeasController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
@@ -52,6 +53,7 @@ namespace Benedicta.Areas.Manage.Controllers
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
                 string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
                 tea.Photo = fileName;
                 db.Tea.Add(tea);
                 db.SaveChanges();
@@ -81,11 +83,24 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo")] Tea tea)
+        public ActionResult Edit([Bind(Include = "Id,Title,Text,Photo")] Tea tea,HttpPostedFileBase Photo)
         {
+            db.Entry(tea).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(tea).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                tea.Photo = fileName;
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(tea).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

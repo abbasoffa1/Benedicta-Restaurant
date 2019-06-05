@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Benedicta.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,25 @@ namespace Benedicta.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: Contact
+        private readonly BenedictaContext db = new BenedictaContext();
+
         public ActionResult Index()
         {
-            return View();
+            AddView model = new AddView();
+
+            model.Settings = db.Setting.OrderByDescending(s => s.Id).Take(1).ToList();
+            model.Contacts = db.Contact.OrderByDescending(s => s.Id).Take(1).ToList();
+
+            model.ContactForms = db.ContactForm.OrderByDescending(s => s.Id).Take(1).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(ContactForm contact)
+        {
+            db.ContactForm.Add(contact);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Contact");
         }
     }
 }

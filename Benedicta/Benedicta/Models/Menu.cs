@@ -18,5 +18,8 @@ namespace Benedicta.Models
 
         [Column(TypeName ="money")]
         public decimal Price { get; set; }
+
+        [StringLength(350)]
+        public string Photo { get; set; }
     }
 }

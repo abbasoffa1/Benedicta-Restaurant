@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
+using Benedicta.Helpers;
+
 
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class MenusController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
@@ -46,10 +49,14 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Ingredients,Price")] Menu menu)
+        public ActionResult Create([Bind(Include = "Id,Name,Ingredients,Price,Photo")] Menu menu, HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                menu.Photo = fileName;
                 db.Menu.Add(menu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,11 +85,25 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Ingredients,Price")] Menu menu)
+        public ActionResult Edit([Bind(Include = "Id,Name,Ingredients,Price,Photo")] Menu menu, HttpPostedFileBase Photo)
         {
+
+            db.Entry(menu).State = EntityState.Modified;
+
+            if(Photo == null)
+            {
+                db.Entry(menu).Property(m => m.Photo).IsModified = false;
+            }
+            else
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                menu.Photo = fileName;
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

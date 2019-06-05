@@ -95,10 +95,23 @@ h4,h2{
 
 
 header{
-    width: 100%;
-    background-image: url('http://benedicta.evatheme.com/demo5/wp-content/uploads/2018/10/slider-bg1.jpg');
     background-size: cover;
+
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    z-index: 3;
 }
+
+
+#HeaderBg{
+    background-image: url('http://benedicta.evatheme.com/demo5/wp-content/uploads/2018/10/slider-bg1.jpg');
+
+    position: relative;
+    bottom: 160px;
+    z-index: 0;
+}
+
 .nav-link{
     color:white !important;
     text-transform: uppercase;
@@ -132,30 +145,33 @@ color: red !important;
     border-color: rgba(0,0,0,.1);
 }
 
-header .col-12 h4{
+#HeaderBg .col-12 h4{
     color: white;
     text-transform: uppercase;
     font-size: 50px;
     position: relative;
     z-index: 2;
+    margin-top: 190px;
 }
 .navbar{
     height: 60px;
 }
-header .col-12 h1 {
+
+#HeaderBg .col-12 h1 {
     font-size: 75px;
     color: white;
     font-weight: 400;
+    margin-top: -90px;
 }
 
-header .col-12 p{
+#HeaderBg .col-12 p{
     color: white;
     font-size: 20px;
     text-transform: uppercase;
-    margin-bottom: 224px;
+    margin-bottom: 270px;
 }
 
-header hr{
+#HeaderBg hr{
     width: 12%;
     height: 24px;
     background-color: rgb(239, 52, 58);
@@ -164,6 +180,7 @@ header hr{
     position: relative;
     z-index: 1;
     bottom: 40%;
+    margin-top: 150px;
 }
 /* HEADER ENDS */
 
@@ -197,6 +214,7 @@ header hr{
    font-size: 50px;
    text-align: center;
    position: relative;
+   margin-bottom: 25px;
 }
 #MenuUpdate h2{
     color :white;
@@ -285,7 +303,7 @@ display: inherit;
 #Reserve .col-lg-12 h4,h1{
     color: white;
     text-align: center;
-}s
+}
 #Reserve  .col-lg-12 .phone{
     margin-top: 140px;
     font-size: 40px;
@@ -532,12 +550,7 @@ display: inherit;
      font-family: Open Sans;
      font-size: 25px;
      font-weight: bold;
-     cursor: pointer;
      transition: 0.5s all ease;
- }
- #News .card-title:hover{
-     color: red;
-     opacity: 0.8;
  }
  #News .card-text{
      color: black;
@@ -552,10 +565,6 @@ display: inherit;
  }
 
  /* NEWS&OFFERS SECTION ENDS */
-
-
-
-
 
 /* FOOTER STARTS */
 footer{
@@ -592,11 +601,21 @@ footer .col-lg-6 i:hover{
 /* HEADER STARTS */
 #AboutHeader{
     width: 100%;
-    background-image: url('../img/header-bg1.jpg');
     background-size: cover;
+    position: relative; 
+    z-index: 3;
 }
-#AboutHeader .row .col-12 h1{
-    margin-bottom: 130px;
+
+#AboutBg{
+    background-image: url('../img/header-bg1.jpg');
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+}
+
+#AboutBg .row .col-12 h1{
+    margin-bottom: 150px;
+    margin-top: 250px;
 }
 /* HEADER ENDS */
 
@@ -709,6 +728,16 @@ footer .col-lg-6 i:hover{
     font-weight: bold;
     margin-top: 120px;
     margin-bottom: 120px;
+}
+#MenuBg{
+    background-image: url('../img/header-bg1.jpg');
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+}
+#MenuBg .col-12 h1{
+    margin-top: 250px;
+    margin-bottom:150px;
 }
 /* LOOK AT SECTION ENDS */
 
@@ -823,9 +852,37 @@ footer .col-lg-6 i:hover{
     margin-bottom: 30px;
     margin-top: 30px;
 }
+#ReserveBg{
+    background-image: url('../img/header-bg1.jpg');
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+}
+
+#ReserveBg .col-12 h1{
+    margin-bottom: 150px;
+    margin-top: 250px;
+}
 /* RESERVE TABLE SECTION ENDS */
 
 /* RESERVATION PAGE ENDS */
+
+/* NEWS PAGE STARTS */
+#NewsBg{
+    background-image: url('../img/header-bg1.jpg');
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+}
+
+#NewsBg .col-12 h1{
+    margin-top: 250px;
+    margin-bottom: 150px;
+}
+
+
+/* NEWS PAGE ENDS */
+
 
 /* CONTACT PAGE STARTS */
 /* SEC3 STARTS */
@@ -834,6 +891,19 @@ font-size: 35px;
 font-weight: bold;
 margin-top: 5px;
 }
+
+#ContactBg{
+    background-image: url('../img/header-bg1.jpg');
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+}
+
+#ContactBg .col-12 h1{
+    margin-top: 250px;
+    margin-bottom: 150px;
+}
+
 #Sec3 .col-lg-6 p{
     font-size: 20px;
     margin-top: 20px;
@@ -913,3 +983,5 @@ margin-top: 30px;
 /* RELATED POSTS SECTION ENDS */
 
 /* CARD1 PAGE ENDS */
+
+

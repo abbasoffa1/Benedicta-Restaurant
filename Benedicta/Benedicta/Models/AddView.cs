@@ -14,7 +14,6 @@ namespace Benedicta.Models
         public List<MenuUpdate> MenuUpdates { get; set; }
         public List<News> News { get; set; }
         public List<Property> Properties { get; set; }
-        public List<Reservation> Reservations { get; set; }
         public List<ReserveTable> ReserveTables { get; set; }
         public List<Service> Services { get; set; }
         public List<Setting> Settings { get; set; }
@@ -22,5 +21,9 @@ namespace Benedicta.Models
         public List<Tea> Teas { get; set; }
         public List<User> Users { get; set; }
         public List<Welcome> Welcomes { get; set; }
+        public List<ReserveTableBg> ReserveTableBgs { get; set; }
+        public List<AboutInfo> AboutInfos { get; set; }
+        public List<MenuT2> MenuT2 { get; set; }
+        public List<MenuT1> MenuT1 { get; internal set; }
     }
 }

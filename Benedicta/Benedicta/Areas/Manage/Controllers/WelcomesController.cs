@@ -8,9 +8,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
-
+using Benedicta.Helpers;
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class WelcomesController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
@@ -53,6 +54,7 @@ namespace Benedicta.Areas.Manage.Controllers
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
                 string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
                 welcome.Photo = fileName;
                 db.Welcome.Add(welcome);
                 db.SaveChanges();
@@ -84,9 +86,22 @@ namespace Benedicta.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Word,Title,Text,Photo")] Welcome welcome,HttpPostedFileBase Photo)
         {
+            db.Entry(welcome).State = EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(welcome).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                welcome.Photo = fileName;
+            }
+
             if (ModelState.IsValid)
             {
-                db.Entry(welcome).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

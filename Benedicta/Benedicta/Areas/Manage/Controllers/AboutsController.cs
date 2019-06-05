@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
+using Benedicta.Helpers;
 
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class AboutsController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
@@ -46,12 +48,13 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Word,Word2,Photo")] About about,HttpPostedFileBase Photo)
+        public ActionResult Create([Bind(Include = "Id,Word,Word2,Text,Photo")] About about, HttpPostedFileBase Photo)
         {
             if (ModelState.IsValid)
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
                 string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
                 about.Photo = fileName;
                 db.About.Add(about);
                 db.SaveChanges();
@@ -81,11 +84,28 @@ namespace Benedicta.Areas.Manage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Word,Word2,Photo")] About about)
+        public ActionResult Edit([Bind(Include = "Id,Word,Word2,Text,Photo")] About about, HttpPostedFileBase Photo)
         {
+
+            db.Entry(about).State = EntityState.Modified;
+
+
+            if (Photo == null)
+            {
+                db.Entry(about).Property(a => a.Photo).IsModified = false;
+            }
+            else
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHHmmssff") + Photo.FileName;
+                string path = Server.MapPath("~/Uploads/");
+                Photo.SaveAs(path + fileName);
+                about.Photo = fileName;
+            }
+
+
             if (ModelState.IsValid)
             {
-                db.Entry(about).State = EntityState.Modified;
+               
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

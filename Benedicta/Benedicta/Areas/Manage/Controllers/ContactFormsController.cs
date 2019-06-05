@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Benedicta.Models;
+using Benedicta.Helpers;
 
 namespace Benedicta.Areas.Manage.Controllers
 {
+    [Auth]
     public class ContactFormsController : Controller
     {
         private BenedictaContext db = new BenedictaContext();
